@@ -26,7 +26,7 @@
                             <td>{{ $shift->start }} - {{ $shift->end }}</td>
                             <td>{{ substr($shift->jobdesk, 0, 20) }}...</td>
                             <td>
-                                <a href="/pegawai/shift/{{$shift->id}}" class="btn btn-sm btn-primary me-2">
+                                <a href="/pegawai/shift/{{$shift->id}}" class="btn btn-sm btn-danger me-2">
                                     <i class="bx bx-info-circle"></i>
                                 </a>
                             </td>

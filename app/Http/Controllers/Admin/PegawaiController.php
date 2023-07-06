@@ -34,6 +34,7 @@ class PegawaiController extends Controller
         $rules = [
             'password' => 'required|max:8',
             'username' => 'required|max:50|unique:users,username',
+            'email' => 'required|email|unique:users,email',
         ];
 
         Validator::make($request->all(), $rules, $messages =
@@ -41,12 +42,16 @@ class PegawaiController extends Controller
             'username.required' => 'username harus diisi',
             'username.max' => 'maximal username 50 karakter',
             'username.unique' => 'username sudah digunakan user lain',
+            'email.required' => 'email harus diisi',
+            'email.email' => 'format email salah',
+            'email.unique' => 'email sudah digunakan user lain',
             'password.required' => 'password harus diisi',
             'password.max' => 'maximal password 8 karakter',
         ])->validate();
 
         User::create([
             'name' => $request->name,
+            'email' => $request->email,
             'username' => $request->username,
             'telp' => $request->telp,
             'role' => 'pegawai',
@@ -89,6 +94,21 @@ class PegawaiController extends Controller
             'posisi' => $request->posisi,
             'domisili' => $request->domisili,
         ];
+
+        if($request->email) :
+
+            $rules = [
+                'email' => 'email|unique:users,email',
+            ];
+
+            Validator::make($request->all(), $rules, $messages =
+            [
+                'email.email' => 'format email salah',
+                'email.unique' => 'email sudah digunakan user lain',
+            ])->validate();
+
+            $updateData['email'] = $request->email;
+        endif;
 
         if($request->username) :
 

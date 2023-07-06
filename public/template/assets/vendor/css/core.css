@@ -4159,8 +4159,8 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: rgba(105, 108, 255, 0.08);
-  border-color: rgba(105, 108, 255, 0.08);
+  background-color: #ff3e1d;
+  border-color: #ff3e1d;
 }
 .page-item.disabled .page-link {
   color: #a1acb8;
@@ -15654,10 +15654,10 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 
 .app-brand-logo {
-  display: block;
+  /* display: block; */
   flex-grow: 0;
   flex-shrink: 0;
-  overflow: hidden;
+  overflow: visible;
   min-height: 1px;
 }
 .app-brand-logo img,

@@ -5,7 +5,7 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Data Perizinan</h5>
             <a href="/pegawai/izin/create">
-                <button type="button" class="btn btn-primary">Tambah Data</button>
+                <button type="button" class="btn btn-danger">Tambah Data</button>
             </a>
         </div>
         <div class="table-responsive text-nowrap">
@@ -25,7 +25,7 @@
                             <td><strong>{{ $izin->tanggal }}</strong></td>
                             <td>{{ $izin->surat }}</td>
                             <td>
-                                <a href="/pegawai/izin/{{ $izin->id }}/edit" class="btn btn-sm btn-success me-2">
+                                <a href="/pegawai/izin/{{ $izin->id }}/edit" class="btn btn-sm btn-warning me-2">
                                     <i class="bx bx-edit-alt"></i>
                                 </a>
                                 <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"

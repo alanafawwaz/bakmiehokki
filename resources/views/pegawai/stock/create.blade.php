@@ -31,7 +31,7 @@
                     @enderror
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
+                    <button type="submit" class="btn btn-danger">Tambah Data</button>
                 </div>
             </form>
         </div>

@@ -9,7 +9,7 @@ class Hadir extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pegawai_id', 'tanggal', 'jam'];
+    protected $fillable = ['pegawai_id', 'tanggal', 'jam', 'date_full'];
 
     public function pegawai()
     {

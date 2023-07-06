@@ -29,7 +29,7 @@
                             <td>{{ $shift->start }} - {{ $shift->end }}</td>
                             <td>{{ substr($shift->jobdesk, 0, 20) }}...</td>
                             <td>
-                                <a href="/admin/shift/{{ $shift->id }}/edit" class="btn btn-sm btn-success me-2">
+                                <a href="/admin/shift/{{ $shift->id }}/edit" class="btn btn-sm btn-warning me-2">
                                     <i class="bx bx-edit-alt"></i>
                                 </a>
                                 <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"

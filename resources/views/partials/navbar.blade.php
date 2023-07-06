@@ -20,7 +20,7 @@
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <!-- Place this tag where you want the button to render. -->
             <li class="nav-item lh-1 me-3">
-                <a href="https://www.instagram.com/bakmiehokki/">
+                <a class="text-danger" href="https://www.instagram.com/bakmiehokki/">
                     <i class='bx bxl-instagram'></i>
                     Instagram
                 </a>
@@ -30,22 +30,35 @@
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                        <img src="{{ asset('template/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
+                        @if (auth()->user()->gender == 'L')
+                            <img src="{{ asset('template/assets/img/avatars/laki2.png') }}" alt
+                                class="w-px-40 h-auto rounded-circle" />
+                        @endif
+                        @if (auth()->user()->gender == 'P')
+                            <img src="{{ asset('template/assets/img/avatars/perempuan.png') }}" alt
+                                class="w-px-40 h-auto rounded-circle" />
+                        @endif
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{route('viewProfile')}}">
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
-                                    <div class="avatar avatar-online">
-                                        <img src="{{ asset('template/assets/img/avatars/1.png')}}" alt
-                                            class="w-px-40 h-auto rounded-circle" />
+                                    <div class="avatar avatar-online">\
+                                        @if (auth()->user()->gender == 'L')
+                                            <img src="{{ asset('template/assets/img/avatars/laki2.png') }}" alt
+                                                class="w-px-40 h-auto rounded-circle" />
+                                        @endif
+                                        @if (auth()->user()->gender == 'P')
+                                            <img src="{{ asset('template/assets/img/avatars/perempuan.png') }}" alt
+                                                class="w-px-40 h-auto rounded-circle" />
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <span class="fw-semibold d-block">{{ strtok(auth()->user()->name, " ") }}</span>
-                                    <small class="text-muted">{{auth()->user()->role}}</small>
+                                    <span class="fw-semibold d-block">{{ strtok(auth()->user()->name, ' ') }}</span>
+                                    <small class="text-muted">{{ auth()->user()->role }}</small>
                                 </div>
                             </div>
                         </a>
@@ -63,10 +76,11 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a href="/logout" class="dropdown-item" onclick="event.preventDefault();
+                        <a href="/logout" class="dropdown-item"
+                            onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                                <i class="bx bx-power-off me-2"></i>
-                                <span class="align-middle">Log Out</span>
+                            <i class="bx bx-power-off me-2"></i>
+                            <span class="align-middle">Log Out</span>
                         </a>
                         <form id="logout-form" action="/logout" method="POST" style="display: none;">
                             @csrf

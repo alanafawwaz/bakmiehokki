@@ -10,6 +10,16 @@
 
                 <div class="row">
                     <div class="col mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Email Pegawai"
+                            value="{{ old('email') ?? $pegawai->email }}" name="email" />
+                        @error('email')
+                            <div class="text-danger">*{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
                         <label for="name" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="name" placeholder="Nama Pegawai"
                             value="{{ old('name') ?? $pegawai->name }}" name="name" />

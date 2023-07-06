@@ -32,7 +32,7 @@
             </div>
             <div class="d-flex justify-content-end">
                 <a href="/pegawai/shift">
-                    <button type="button" class="btn btn-primary">Kembali</button>
+                    <button type="button" class="btn btn-danger">Kembali</button>
                 </a>
             </div>
         </div>

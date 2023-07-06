@@ -34,7 +34,7 @@
                             <td>{{ $pegawai->posisi }}</td>
                             <td>{{ $pegawai->type }}</td>
                             <td>
-                                <a href="/admin/pegawai/{{$pegawai->id}}/edit" class="btn btn-sm btn-success me-2">
+                                <a href="/admin/pegawai/{{$pegawai->id}}/edit" class="btn btn-sm btn-warning me-2">
                                     <i class="bx bx-edit-alt"></i>
                                 </a>
                                 <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hapus"
@@ -76,7 +76,7 @@
                                 </button>
                             </div>
                             <div class="">
-                                <button type="submit" class="btn btn-primary">Hapus</button>
+                                <button type="submit" class="btn btn-danger">Hapus</button>
                             </div>
                         </div>
                     </div>

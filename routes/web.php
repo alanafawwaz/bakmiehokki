@@ -10,10 +10,15 @@ use App\Http\Controllers\Pegawai\PegawaiHadirController;
 use App\Http\Controllers\Pegawai\PegawaiIzinController;
 use App\Http\Controllers\Pegawai\PegawaiShiftController;
 use App\Http\Controllers\Pegawai\PegawaiStockController;
+use App\Http\Controllers\Pegawai\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class, 'index']);
 Route::post('/', [AuthController::class, 'login']);
+Route::get('/forgot', [AuthController::class, 'forgot']);
+Route::post('/forgot', [AuthController::class, 'handleForgot']);
+Route::get('/reset/{token}', [AuthController::class, 'reset']);
+Route::post('/reset/{token}', [AuthController::class, 'handleReset']);
 
 Route::middleware('login')->group(function () {
 
@@ -24,7 +29,7 @@ Route::middleware('login')->group(function () {
     });
 
     Route::middleware('admin')->group(function () {
-        
+
         Route::prefix('/admin')->group(function () {
 
             Route::get('/stock', [StockController::class, 'index']);
@@ -38,6 +43,9 @@ Route::middleware('login')->group(function () {
     Route::middleware('pegawai')->group(function () {
 
         Route::prefix('/pegawai')->group(function () {
+
+            Route::get('/profile', [ProfileController::class, 'get'])->name('viewProfile');
+            Route::post('/profile', [ProfileController::class, 'post'])->name('postProfile');
 
             Route::resource('/izin', PegawaiIzinController::class);
             Route::resource('/stock', PegawaiStockController::class);

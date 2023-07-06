@@ -10,7 +10,7 @@ class HadirController extends Controller
 {
     public function index()
     {
-        $hadirs = Hadir::select('id', 'pegawai_id', 'tanggal', 'jam')
+        $hadirs = Hadir::select('id', 'pegawai_id', 'tanggal', 'jam', 'date_full')
                         ->orderBy('tanggal', 'desc')
                         ->orderBy('jam', 'desc')
                         ->paginate(5);

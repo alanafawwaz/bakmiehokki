@@ -33,7 +33,7 @@
                     @enderror
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Ubah Laporan</button>
+                    <button type="submit" class="btn btn-danger">Ubah Laporan</button>
                 </div>
             </form>
         </div>
